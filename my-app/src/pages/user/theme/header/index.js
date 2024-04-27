@@ -1,11 +1,12 @@
 import './style.scss'
 import {memo, useState} from "react"
-import {RiShoppingCart2Line, RiMailLine,RiFacebookBoxLine,RiInstagramLine, RiLinkedinBoxLine,RiTwitterLine,RiUser3Line } from "react-icons/ri";
+import {RiPhoneLine,RiShoppingCart2Line, RiMailLine,RiFacebookBoxLine,RiInstagramLine, RiLinkedinBoxLine,RiTwitterLine,RiUser3Line } from "react-icons/ri";
+import {AiOutlineMenu } from "react-icons/ai";
 import {Link} from "react-router-dom";
 import {formatter} from "../../../../utils/fomater";
 import {ROUTERS} from "../../../../utils/router";
 const Header = () => {
-    
+    const [isShowcategories,setShowcategories]=useState(false)
     const [menus,setMenus]=useState([
         {
             name: "Trang Chủ",
@@ -13,7 +14,7 @@ const Header = () => {
         },
         {
             name: "Cửa Hàng",
-            path: ROUTERS.USER.PRODUCTS
+            path: ROUTERS.USER.SHOP
         },
         {
             name: "Sản Phẩm",
@@ -156,6 +157,85 @@ const Header = () => {
                                     </Link>
                                 </li>
                             </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className={"container"}>
+                <div className={"row hero__categories_container"}>
+                    <div className={"col-lg-3 hero__categories"}>
+                        <div className={"hero__categories_all"} onClick={() => setShowcategories(!isShowcategories)}>
+                            <AiOutlineMenu/>
+                            Danh sach san pham
+                        </div>
+                        <ul className={isShowcategories ? "" : "hidden"}>
+                            <li>
+                                <Link to={""}>
+                                    Thit tuoi
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={""}>
+                                    Rau cu
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={""}>
+                                    Trai cay
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={""}>
+                                    Nuoc trai cay
+                                </Link>
+                            </li>
+                            <li>
+                                <Link to={""}>
+                                    Hai san
+                                </Link>
+                            </li>   
+                        </ul>
+                    </div>
+                    <div className={"col-lg-9 hero__search_container"}>
+                        <div className={"hero__search"}>
+                            <div className={"hero__search__form"}>
+                                <form >
+                                    <input type="text" placeholder={"Ban dang tim gi"}/>
+                                    <button type="submit" className={"button-submit button-submit1"}>
+                                        Dang ki
+                                    </button>
+                                </form>
+                            </div>
+                            <div className={"hero__search__phone"}>
+                                <div className={"hero__search__phone__icon"}>
+                                    <RiPhoneLine/>
+                                </div>
+                                <div className={"hero__search__phone__text"}>
+                                    <p>
+                                        0218.371.787
+                                    </p>
+                                    <span>
+                                        Ho tro 24/7
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className={"hero__item"}>
+                            <div className={"hero__text"}>
+                                <span>
+                                    Trai cay tuoi
+                                </span>
+                                <h2>
+                                    Rau qua <br/>
+                                    sach 100%
+                                </h2>
+                                <p>
+                                    Mien phi giao hang tan noi
+                                </p>
+                                <Link to={""} className={"primary-button"}>
+                                    Mua ngay
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </div>

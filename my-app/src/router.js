@@ -3,6 +3,7 @@ import HomePage from "./pages/user/homePage";
 import {Route, Routes} from "react-router-dom";
 import MasterLayout from "./pages/user/theme/masterLayout";
 import ProfilePage from "./pages/user/profilePage";
+import ShopPage from "./pages/user/shopPage";
 
 const renderRouterUser = () => {
   const userRouters = [
@@ -13,6 +14,10 @@ const renderRouterUser = () => {
       {
           path: ROUTERS.USER.PROFILE,
           component: <ProfilePage/>
+      },
+      {
+          path: ROUTERS.USER.SHOP,
+          component: <ShopPage/>
       }
   ]
     
